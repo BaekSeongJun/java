@@ -2,13 +2,49 @@ package array4;
 
 public class FrequancyArray {
 	public int[] frequancy(int[] a) {
-		
+		int[] array ;
+		int count;
+		int max = 0;
+		for(int i = 0; i <a.length; i++) {
+			if(a[i] > max)
+				max = a[i];
+		}
+		array = new int[max+1];
+		for(int j = 0; j <= max; j++) {
+			count = 0;
+			for(int x = 0; x < a.length; x++) {
+				if(a[x] == j) {
+					count += 1;
+				array[j] = count;
+			}
+				}
+		}
+		return array;
 	}
+	
 	public int[] generate(int[]a) {
+		int[] array;
+		int count = 0;
+		int max = 0;
+		int sum = 0;
+		for (int i = 0; i < a.length; i++) {
+			sum += a[i];
+		}
+		array = new int[sum];
+		for(int j = 0; j < a.length; j++) {
+			if(a[j] != 0) {
+				max = a[j];
+				for(int x = 0; x < max; x++) {
+					array[count + x] = j;
+				}
+				count += a[j];			
+			}
+		}	
+		return array;
 		
 	}
 	public int[] mysort(int[] a) {
-		int[] my = generate(frequancy(a));
+		int[] my = generate(a);
 		return my;
 	}
 }
